@@ -1,0 +1,30 @@
+<html>
+<head>
+        <title>IPA Admin Report</title>
+</head>
+<body>
+<h1> IPA Admin Report </h1>
+<h2> Missing Emails </h2>
+<ul>
+    {% for users, email in users_missingEmails %}
+    <li><b>{{ users }}</b> - <b>{{ email }}</b></li>
+    {% endfor %}
+</ul>
+
+<h2> Disabled Users </h2>
+<ul>
+    {% for users in users_disabled %}
+    <li>{{ users }}</li>
+    {% endfor %}
+</ul>
+
+<h2> Expired Passwords </h2>
+<ul>
+    {% for users, days in users_expired %}
+    <li><b>{{ users }}</b> - Expired for <b>{{ days|abs }} days</b></li>
+    {% endfor %}
+</ul>
+
+
+</body>
+</html>
